@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <link rel="stylesheet" href="/static/css/main.css" type="text/css"/>
+    <title>websocket</title>
+    <style>
+        body {
+            background: url({{ static_url('image/qq_back.jpg')}});
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="head">
+            <div class="operate">欢迎您 <span>{{user}}</span> <a href="javascript:void(0)" class="logout">[登出]</a></div>
+        </div>
+
+        <div id="chat">
+            <div data-type='system' id="systemMessage" class='message'>
+
+            </div>
+
+            <!-- 左边的联系人列表 -->
+            <div id="activeClientsList" class="left">
+                <div class="conversation"><span>会话</span></div>
+            </div>
+
+            <!-- 右边的聊天记录(包含发送消息框)-->
+            <div class="right none">
+                <div id="chatMsg">
+                    <div id="chatFriend"><span class="friend"></span><button class="close_dialog">关闭</button></div>
+                    <!--每个好友有一个聊天的记录窗口, 在进行好友切换时进行聊天窗口的切换-->
+                    <div id="exampleWindow" class="chatWindow none"></div>
+                </div>
+
+                <div class="talkBox">
+                    <textarea class="talkContent" placeholder="请输入聊天内容"></textarea><button class="sendContent">发送</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <input type="hidden" id="client_number" value="{{user}}">
+
+    <script src="/static/js/main.js"></script>
+</body>
+
+
+</html>
